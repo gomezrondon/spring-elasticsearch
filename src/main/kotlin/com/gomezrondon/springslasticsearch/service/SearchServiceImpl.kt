@@ -9,7 +9,10 @@ import org.springframework.stereotype.Service
 class SearchServiceImpl(private val repository: DataFileRepository): SearchService {
 
     override fun searchByFileName(fileName: String): List<String> {
-        val findByName = repository.findByNameCustomQuery(fileName.toLowerCase(), PageRequest(0,500)).map { it.path }.toList()
+        val word = fileName.toLowerCase()
+        var findByName = repository.findByNameCustomQuery(word, PageRequest(0,500)).map { it.path }.toMutableList()
+        val toList = repository.findByNameUsingRegex(".*$word.*", PageRequest(0, 500)).map { it.path }.toList()
+        findByName.addAll(toList)
         return findByName
     }
 

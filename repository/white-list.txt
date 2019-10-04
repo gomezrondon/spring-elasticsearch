@@ -1,6 +1,6 @@
 C:\temp
 C:\Users\jrgm\Pictures
---C:\Users\jrgm\Documents
---C:\Users\jrgm\Downloads
+C:\Users\jrgm\Documents
+C:\Users\jrgm\Downloads
 --C:\CA
---C:\Program Files\internet explorer
+C:\Program Files\internet explorer

@@ -17,7 +17,8 @@ interface DataFileRepository: ElasticsearchRepository<DataFile, String> {
     @Query("{\"bool\": {\"must\": [{\"match\": {\"lines\": \"?0\"}}]}}")
     fun findByLinesUsingCustomQuery(name: String, pageable: Pageable): Page<DataFile>
 
-
+    @Query("{\"regexp\":{\"name\":{\"value\": \"?0\"}}}")
+    fun findByNameUsingRegex(value: String, pageable: Pageable): Page<DataFile>
 
 /*  NO Funcionan como se espera, hay que investigar mas
 
